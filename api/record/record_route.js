@@ -7,7 +7,7 @@ const router = express.Router();
 /**
  * @swagger
  *
- *  /api/v1/record:
+ *  /record:
  *    post:
  *      summary: Filter records
  *      description: Filter records by date and total count.

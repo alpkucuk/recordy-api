@@ -7,9 +7,9 @@ _configureSwaggerRoute = (app) => {
     swaggerDefinition: {
       openapi: '3.0.0',
       info: {
-        title: 'Recordy API',
-        servers: [`http://localhost:${process.env.port}/api/v1`]
-      }
+        title: 'Recordy API'
+      },
+      servers: [{ url: `http://localhost:${process.env.PORT}/api/v1` }]
     },
     apis: ['api/**/*.js']
   };
