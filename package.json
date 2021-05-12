@@ -2,10 +2,10 @@
   "name": "recordy-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "dev": "nodemon index.js",
-    "start": "node index.js",
+    "dev": "NODE_ENV=development nodemon server.js",
+    "start": "NODE_ENV=production node server.js",
     "test": "jest"
   },
   "jest": {
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/alpkucuk/recordy-api#readme",
   "dependencies": {
+    "dotenv-safe": "^8.2.0",
     "express": "^4.17.1",
     "joi": "^17.4.0",
     "mongoose": "^5.12.8"

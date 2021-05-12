@@ -6,6 +6,6 @@ const router = express.Router();
 
 router
   .route('/')
-  .post(RecordValidator.validate(), RecordController.filterRecords);
+  .post(RecordValidator.validate, RecordController.filterRecords);
 
 module.exports = router;

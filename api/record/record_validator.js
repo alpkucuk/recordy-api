@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const ApiError = require('../../util/api_error');
+const ApiError = require('./../../util/api_error');
 
 const _schema = Joi.object().keys({
   startDate: Joi.date().iso().required(),
@@ -14,7 +14,7 @@ const _schema = Joi.object().keys({
  * @param {Object} res The response object.
  * @param {Object} next The next object.
  */
-exports.validate = () => (req, res, next) => {
+exports.validate = (req, res, next) => {
   try {
     const validationResult = _schema.validate(req.body);
     if (validationResult.error) {

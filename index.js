@@ -1,3 +1,4 @@
+require('dotenv-safe').config();
 const express = require('express');
 const handleError = require('./middleware/handle_error');
 const router = require('./api/index');
@@ -8,16 +9,15 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Register api routes
+// Register api routes.
 router.setRoutes(app);
 
-// Handle unregistered routes
+// Handle unregistered routes.
 app.use((req, res, next) => {
   next(new ApiError(404, 'Requested API endpoint not found.'));
 });
 
-// Error handler
+// Error handler.
 app.use(handleError);
 
-const PORT = process.env.PORT || 5000;
-app.listen(PORT);
+module.exports = app;
