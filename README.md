@@ -31,7 +31,7 @@ MONGODB_URI=<YOUR_MONGODB_URI>
 $ npm run dev
 ```
 
-#### Build and run for production
+#### Run for production
 ```
 $ npm run start
 ```
