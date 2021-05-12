@@ -30,12 +30,12 @@ const router = express.Router();
  *                  type: integer
  *                  description: Filter records which total count is less than maximum count.
  *              example:
- *                startDate: "2019-11-18"
- *                endDate: "2020-07-05"
- *                minCount: 1000
+ *                startDate: "2015-07-05"
+ *                endDate: "2015-10-05"
+ *                minCount: 4900
  *                maxCount: 5000
  *      responses:
- *        "200":
+ *        200:
  *          description: OK
  *          content:
  *            application/json:
@@ -59,7 +59,7 @@ const router = express.Router();
  *                          type: string
  *                        totalCount:
  *                          type: integer
- *        "400":
+ *        400:
  *          description: Bad Request
  *          content:
  *            application/json:

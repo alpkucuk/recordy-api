@@ -9,7 +9,10 @@ _configureSwaggerRoute = (app) => {
       info: {
         title: 'Recordy API'
       },
-      servers: [{ url: `http://localhost:${process.env.PORT}/api/v1` }]
+      servers: [
+        { url: 'https://recordy-api.herokuapp.com/api/v1/' },
+        { url: `http://localhost:${process.env.PORT}/api/v1` }
+      ]
     },
     apis: ['api/**/*.js']
   };
