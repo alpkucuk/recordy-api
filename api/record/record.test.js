@@ -38,30 +38,28 @@ describe('Record API Unit Test', () => {
       expect(ApiError).toHaveBeenCalledTimes(1);
     });
 
-    it('missing endDate parameter, should give validation error', () => {
-      const req = httpMocks.createRequest();
-      const next = jest.fn();
-      req.body = {
-        startDate: '2011-12-05',
-        minCount: '0',
-        maxCount: 500
-      };
-      RecordValidator.validate(req, httpMocks.createResponse(), next);
-      expect(ApiError).toHaveBeenCalledTimes(1);
-    });
-
     it('Extra parameter not allowed, should give validation error', () => {
       const req = httpMocks.createRequest();
       const next = jest.fn();
       req.body = {
         startDate: '2011-12-05',
         endDate: '2012-01-18',
-        minCount: '0',
+        minCount: 0,
         maxCount: 500,
         extra: 9000
       };
       RecordValidator.validate(req, httpMocks.createResponse(), next);
       expect(ApiError).toHaveBeenCalledTimes(1);
+    });
+
+    it('all parameters are missing, should validate successfully', () => {
+      const next = jest.fn();
+      RecordValidator.validate(
+        httpMocks.createRequest(),
+        httpMocks.createResponse(),
+        next
+      );
+      expect(ApiError).toHaveBeenCalledTimes(0);
     });
 
     it('all parameters are valid, should validate successfully', () => {
