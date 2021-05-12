@@ -63,13 +63,8 @@ const _filterRecords = async (filter) => {
     });
   }
 
-  try {
-    const result = await Record.aggregate(pipeline);
-    return result;
-  } catch (err) {
-    console.error(err);
-    throw new Error('Failed to fetch data from database.');
-  }
+  const result = await Record.aggregate(pipeline);
+  return result;
 };
 
 /**
@@ -83,6 +78,7 @@ exports.filterRecords = async (req, res, next) => {
     const records = await _filterRecords(req.body);
     res.status(200).json({ code: 0, msg: 'Success', records });
   } catch (err) {
+    console.error(err);
     next(err);
   }
 };
